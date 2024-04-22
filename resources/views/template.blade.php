@@ -332,7 +332,6 @@
                             <span class="menu-title">Data Table</span>
                         </a>
                     </li>
-
                     {{-- <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="{{'data'}}" aria-expanded="false"
                             aria-controls="tables">
