@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\SensorController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GetdataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,5 @@ Route::get('/export-csv', 'App\Http\Controllers\SensorController@exportCsv');
 // api realtime
 
 Route::get('/sensors/latest', [ApiController::class, 'latest']);
+// api esp
+Route::post('/esp', [GetdataController::class, 'store'])->name('data.store');
