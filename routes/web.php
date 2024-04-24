@@ -16,15 +16,16 @@ use App\Http\Controllers\GetdataController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/table', function () {
     return view('datatable');
 });
 // Route::get('/dashboard', function () {
 //     // return view('dashboard');
 // });
+Route::get('/',[SensorController::class, 'index'])->name('dashboard');
 Route::get('/dashboard',[SensorController::class, 'index'])->name('dashboard');
 Route::get('/data',[SensorController::class, 'data'])->name('data');
 Route::get('/export-excel', 'App\Http\Controllers\SensorController@exportExcel');

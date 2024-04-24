@@ -115,7 +115,7 @@ class SensorController extends Controller
 
     public function data()
     {
-        $data = Sensor::latest()->paginate(5);
+        $data = Sensor::latest()->paginate(10);
         return view('datatable', ['data' => $data]);
     }
 
