@@ -19,23 +19,7 @@ class GetdataController extends Controller
 
             $now = Carbon::now();
 
-            if ($now->diffInMinutes(Carbon::parse($last_esp->created_at)) >= 2) {
-                $esp = Sensor::create([
-
-                    'value_suhu' => $request->value_suhu,
-                    'value_kelembaban' => $request->value_kelembaban,
-                    'value_pm25' => $request->value_pm25,
-                    'value_pm10' => $request->value_pm10,
-                    'value_co' => $request->value_co,
-                    'value_co2' => $request->value_co2,
-
-                ]);
-                Event::dispatch(new NewEspEvent($esp));
-                return response()->json(
-                    $esp
-                );
-            }
-            if ($last_esp->kualitasair != $request->kualitasair) {
+            if (!$last_esp || $now->diffInMinutes(Carbon::parse($last_esp->created_at)) >= 2) {
                 $esp = Sensor::create([
                     'value_suhu' => $request->value_suhu,
                     'value_kelembaban' => $request->value_kelembaban,
@@ -45,10 +29,9 @@ class GetdataController extends Controller
                     'value_co2' => $request->value_co2,
                 ]);
                 Event::dispatch(new NewEspEvent($esp));
-                return response()->json(
-                    $esp
-                );
+                return response()->json($esp);
             }
+
             return response()->json('success');
         } catch (\Exception $e) {
             return response()->json([
