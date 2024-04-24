@@ -1,5 +1,12 @@
 @extends('template')
 @section('content')
+<style>
+    .card-people .weather-info {
+    position: absolute;
+    top: -60px;
+    right: 24px;
+}
+</style>
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
@@ -21,14 +28,15 @@
                             <img src="skydash/images/dashboard/people.svg" alt="people">
                             <div class="weather-info">
                                 <div class="d-flex">
-                                    <div>
+                                    {{-- <div>
                                         <h2 class="mb-0 font-weight-normal"><i
                                                 class="icon-sun mr-2"></i>{{ $data->first()->value_suhu }}<sup>C</sup>
                                         </h2>
                                         <h2 class="mb-0 font-weight-normal">{{ $data->first()->kategori_suhu }}
                                         </h2>
-                                    </div>
+                                    </div> --}}
                                     <div class="ml-2">
+                                        <h4 class="location font-weight-normal">{{ $data->first()->value_suhu }} °C</h4>
                                         <h4 class="location font-weight-normal">Pontianak</h4>
                                         <h6 class="font-weight-normal">Indonesia</h6>
                                     </div>
@@ -43,22 +51,23 @@
                             <div
                                 class="card  @if ($data->first()->kategori_suhu == 'Dingin') bg-success
                             @elseif($data->first()->kategori_suhu == 'Normal')
-                                bg-primary
+                                bg-primary  text-light
                             @elseif($data->first()->kategori_suhu == 'Panas')
-                                bg-warning
+                                bg-warning  text-light
                             @else
-                                bg-danger @endif
+                                bg-danger  text-light @endif
                         ">
-                                <div class="card-body">
+                                <div class="card-body ">
                                     <p class="mb-3">Suhu (Temprature)</p>
-                                    <p class="fs-30 mb-2" id="suhu">{{ $data->first()->value_suhu }} C</p>
+                                    <p class="fs-30 mb-3" id="suhu">{{ $data->first()->value_suhu }} °C</p>
                                     <p class="fs-30 mb-2" id="suhu">{{ $data->first()->kategori_suhu }}</p>
 
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 mb-4 stretch-card transparent">
-                            <div class="card  @if ($data->first()->kategori_pm10 == 'Baik') bg-success text-light
+                            <div
+                                class="card  @if ($data->first()->kategori_pm10 == 'Baik') bg-success text-light
                                 @elseif($data->first()->kategori_pm10 == 'Sedang')
                                     bg-primary text-light
                                 @elseif($data->first()->kategori_pm10 == 'Tidak Sehat')
@@ -116,7 +125,8 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                            <div class="card  @if ($data->first()->kategori_co == 'Baik') bg-success text-light
+                            <div
+                                class="card  @if ($data->first()->kategori_co == 'Baik') bg-success text-light
                                 @elseif($data->first()->kategori_co == 'Cukup')
                                     bg-primary text-light
                                 @elseif($data->first()->kategori_co == 'Buruk')
@@ -133,7 +143,8 @@
                             </div>
                         </div>
                         <div class="col-md-6 stretch-card transparent">
-                            <div class="card @if ($data->first()->kategori_co == 'Baik') bg-success text-light
+                            <div
+                                class="card @if ($data->first()->kategori_co == 'Baik') bg-success text-light
                                 @elseif($data->first()->kategori_co == 'Cukup')
                                     bg-primary text-light
                                 @elseif($data->first()->kategori_co == 'Buruk')
