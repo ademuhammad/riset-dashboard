@@ -19,7 +19,7 @@ class GetdataController extends Controller
 
             $now = Carbon::now();
 
-            if (!$last_esp || $now->diffInMinutes(Carbon::parse($last_esp->created_at)) >= 2) {
+            if (!$last_esp || $now->diffInSeconds(Carbon::parse($last_esp->created_at)) >= 10) {
                 $esp = Sensor::create([
                     'value_suhu' => $request->value_suhu,
                     'value_kelembaban' => $request->value_kelembaban,
