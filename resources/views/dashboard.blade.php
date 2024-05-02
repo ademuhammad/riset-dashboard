@@ -49,7 +49,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-4 stretch-card transparent">
                             <div
-                                class="card  @if ($data->first()->kategori_suhu == 'Dingin') bg-success
+                                class="card  @if ($data->first()->kategori_suhu == 'Baik') bg-success text-light
                             @elseif($data->first()->kategori_suhu == 'Normal')
                                 bg-primary  text-light
                             @elseif($data->first()->kategori_suhu == 'Panas')
@@ -67,12 +67,12 @@
                         </div>
                         <div class="col-md-6 mb-4 stretch-card transparent">
                             <div
-                                class="card  @if ($data->first()->kategori_pm10 == 'Baik') bg-success text-light
-                                @elseif($data->first()->kategori_pm10 == 'Sedang')
+                                class="card  @if ($data->first()->kategori_kel == 'Baik') bg-success text-light
+                                @elseif($data->first()->kategori_kel == 'Tidak Baik')
                                     bg-primary text-light
-                                @elseif($data->first()->kategori_pm10 == 'Tidak Sehat')
+                                @elseif($data->first()->kategori_kel == 'Berbahaya')
                                     bg-warning text-light
-                                @elseif($data->first()->kategori_pm10 == 'Sangat Tidak Sehat')
+                                @elseif($data->first()->kategori_kel == 'Sangat Berbahaya')
                                     bg-danger text-light
                                 @else
                                     bg-dark text-light @endif">

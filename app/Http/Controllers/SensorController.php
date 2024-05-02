@@ -30,12 +30,18 @@ class SensorController extends Controller
         // Mengelompokkan data suhu ke dalam kategori
         foreach ($data as $item) {
             $suhu = $item->value_suhu;
-            if ($suhu >= 0 && $suhu <= 20) {
-                $item->kategori_suhu = "Dingin";
-            } elseif ($suhu >= 21 && $suhu <= 30) {
-                $item->kategori_suhu = "Normal";
+            if ($suhu >= 20 && $suhu <= 27.5) {
+                $item->kategori_suhu = "Baik";
+            } elseif ($suhu < 20) {
+                $item->kategori_suhu = "Tidak Baik";
+            } elseif ($suhu > 27.5 && $suhu < 32) {
+                $item->kategori_suhu = "Tidak Baik";
+            } elseif ($suhu > 32 && $suhu < 54) {
+                $item->kategori_suhu = "Berbahaya";
+            } elseif ($suhu > 54) {
+                $item->kategori_suhu = "Sangat Berbahaya";
             } else {
-                $item->kategori_suhu = "Panas";
+                $item->kategori_suhu = " Sangat Berbahaya";
             }
 
             $pm25 = $item->value_pm25;
@@ -43,12 +49,11 @@ class SensorController extends Controller
                 $item->kategori_pm25 = "Baik";
             } else if ($pm25 >= 15.5 && $pm25 <= 55.5) {
                 $item->kategori_pm25 = "Sedang";
-            } else if ($pm25 >=  55.5 && $pm25 <= 150.4 ) {
+            } else if ($pm25 >=  55.5 && $pm25 <= 150.4) {
                 $item->kategori_pm25 = "Tidak Sehat";
-            } else if ($pm25 >=  150.5 && $pm25 <= 250.4 ) {
+            } else if ($pm25 >=  150.5 && $pm25 <= 250.4) {
                 $item->kategori_pm25 = "Sangat Tidak Sehat";
-
-            } else if ($pm25 >=  250.5 ) {
+            } else if ($pm25 >=  250.5) {
                 $item->kategori_pm25 = "Berbahaya";
             }
 
@@ -59,9 +64,8 @@ class SensorController extends Controller
                 $item->kategori_pm10 = "Sedang";
             } else if ($pm10 >=  151 && $pm10 <= 350) {
                 $item->kategori_pm10 = "Tidak Sehat";
-            } else if ($pm10 >=  351 && $pm10 <= 420 ) {
+            } else if ($pm10 >=  351 && $pm10 <= 420) {
                 $item->kategori_pm10 = "Sangat Tidak Sehat";
-
             } else if ($pm10 >=  420) {
                 $item->kategori_pm10 = "Berbahaya";
             }
@@ -72,9 +76,8 @@ class SensorController extends Controller
                 $item->kategori_co2 = "Cukup";
             } else if ($co2 >=  2001 && $co2 <= 5000) {
                 $item->kategori_co2 = "Buruk";
-            } else if ($co2 >=  5001   && $co2 <= 40000 ) {
+            } else if ($co2 >=  5001   && $co2 <= 40000) {
                 $item->kategori_co2 = "Sangat Buruk";
-
             } else if ($co2 >=  40000) {
                 $item->kategori_co2 = "Berbahaya";
             }
@@ -85,26 +88,25 @@ class SensorController extends Controller
                 $item->kategori_co = "Cukup";
             } else if ($co >=  2001 && $co <= 5000) {
                 $item->kategori_co = "Buruk";
-            } else if ($co >=  5001   && $co <= 40000 ) {
+            } else if ($co >=  5001   && $co <= 40000) {
                 $item->kategori_co = "Sangat Buruk";
-
             } else if ($co >=  40000) {
                 $item->kategori_co = "Berbahaya";
             }
 
             $kel = $item->value_kel;
-            if ($kel >= 0 && $kel <= 1000) {
+            if ($kel >= 41 && $kel <= 60) {
                 $item->kategori_kel = "Baik";
-            } else if ($kel >= 1001 && $kel <= 2000) {
-                $item->kategori_kel = "Cukup";
-            } else if ($kel >=  2001 && $kel <= 5000) {
-                $item->kategori_kel = "Buruk";
-            } else if ($kel >=  5001   && $kel <= 40000 ) {
-                $item->kategori_kel = "Sangat Buruk";
-
-            } else if ($kel >=  40000) {
+            } else if ($kel >= 0 && $kel < 41) { // Ubah dari $kel < 40 menjadi $kel >= 0 && $kel < 41
+                $item->kategori_kel = "Tidak Baik";
+            } else if ($kel > 60 && $kel <= 100) {
                 $item->kategori_kel = "Berbahaya";
+            } else if ($kel > 100) {
+                $item->kategori_kel = "Sangat Berbahaya";
+            } else {
+                $item->kategori_kel = "Tidak Valid"; // Penambahan kondisi jika nilai kelambaban tidak valid
             }
+
         }
 
         // Mengirim data yang telah dikelompokkan ke tampilan
