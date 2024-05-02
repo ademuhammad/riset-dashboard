@@ -129,11 +129,11 @@
                         <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
                             <div
                                 class="card  @if ($data->first()->kategori_co == 'Baik') bg-success text-light
-                                @elseif($data->first()->kategori_co == 'Cukup')
+                                @elseif($data->first()->kategori_co == 'Sedang')
                                     bg-primary text-light
-                                @elseif($data->first()->kategori_co == 'Buruk')
+                                @elseif($data->first()->kategori_co == 'Berbahaya')
                                     bg-warning text-light
-                                @elseif($data->first()->kategori_co == 'Sangat Buruk')
+                                @elseif($data->first()->kategori_co == 'Sangat Berbahaya')
                                     bg-danger text-light
                                 @else
                                     bg-dark text-light @endif">
@@ -147,11 +147,11 @@
                         <div class="col-md-6 stretch-card transparent">
                             <div
                                 class="card @if ($data->first()->kategori_co2 == 'Baik') bg-success text-light
-                                @elseif($data->first()->kategori_co2 == 'Cukup')
+                                @elseif($data->first()->kategori_co2 == 'Sedang')
                                     bg-primary text-light
-                                @elseif($data->first()->kategori_co2 == 'Buruk')
+                                @elseif($data->first()->kategori_co2 == 'Berbahaya')
                                     bg-warning text-light
-                                @elseif($data->first()->kategori_co2 == 'Sangat Buruk')
+                                @elseif($data->first()->kategori_co2 == 'Sangat Berbahaya')
                                     bg-danger text-light
                                 @else
                                     bg-dark text-light @endif">

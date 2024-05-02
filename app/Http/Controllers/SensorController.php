@@ -73,23 +73,23 @@ class SensorController extends Controller
             if ($co2 >= 0 && $co2 <= 1000) {
                 $item->kategori_co2 = "Baik";
             } else if ($co2 >= 1001 && $co2 <= 2000) {
-                $item->kategori_co2 = "Cukup";
+                $item->kategori_co2 = "Sedang";
             } else if ($co2 >=  2001 && $co2 <= 5000) {
-                $item->kategori_co2 = "Buruk";
-            } else if ($co2 >=  5001   && $co2 <= 40000) {
-                $item->kategori_co2 = "Sangat Buruk";
-            } else if ($co2 >=  40000) {
                 $item->kategori_co2 = "Berbahaya";
+            } else if ($co2 >=  5001   && $co2 <= 40000) {
+                $item->kategori_co2 = "Sangat Berbahaya";
+            } else if ($co2 >=  40000) {
+                $item->kategori_co2 = " Sangat Berbahaya";
             }
             $co = $item->value_co;
-            if ($co >= 0 && $co <= 1000) {
+            if ($co >= 0 && $co <= 9) {
                 $item->kategori_co = "Baik";
-            } else if ($co >= 1001 && $co <= 2000) {
-                $item->kategori_co = "Cukup";
-            } else if ($co >=  2001 && $co <= 5000) {
-                $item->kategori_co = "Buruk";
-            } else if ($co >=  5001   && $co <= 40000) {
-                $item->kategori_co = "Sangat Buruk";
+            } else if ($co >= 10 && $co <= 35) {
+                $item->kategori_co = "Sedang";
+            } else if ($co >=  36 && $co <= 800) {
+                $item->kategori_co = "Berbahaya";
+            } else if ($co >=  801 ) {
+                $item->kategori_co = "Sangat Berbahaya";
             } else if ($co >=  40000) {
                 $item->kategori_co = "Berbahaya";
             }
