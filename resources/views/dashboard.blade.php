@@ -1,12 +1,12 @@
 @extends('template')
 @section('content')
-<style>
-    .card-people .weather-info {
-    position: absolute;
-    top: -60px;
-    right: 24px;
-}
-</style>
+    <style>
+        .card-people .weather-info {
+            position: absolute;
+            top: -60px;
+            right: 24px;
+        }
+    </style>
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row">
@@ -50,12 +50,14 @@
                         <div class="col-md-6 mb-4 stretch-card transparent">
                             <div
                                 class="card  @if ($data->first()->kategori_suhu == 'Baik') bg-success text-light
-                            @elseif($data->first()->kategori_suhu == 'Normal')
+                            @elseif($data->first()->kategori_suhu == 'Tidak Baik')
                                 bg-primary  text-light
-                            @elseif($data->first()->kategori_suhu == 'Panas')
+                            @elseif($data->first()->kategori_suhu == 'Berbahaya')
                                 bg-warning  text-light
+                                @elseif($data->first()->kategori_suhu == 'Sangat Berbahaya')
+                                bg-danger text-light
                             @else
-                                bg-danger  text-light @endif
+                                bg-dark  text-light @endif
                         ">
                                 <div class="card-body ">
                                     <p class="mb-3">Suhu (Temprature)</p>
@@ -144,12 +146,12 @@
                         </div>
                         <div class="col-md-6 stretch-card transparent">
                             <div
-                                class="card @if ($data->first()->kategori_co == 'Baik') bg-success text-light
-                                @elseif($data->first()->kategori_co == 'Cukup')
+                                class="card @if ($data->first()->kategori_co2 == 'Baik') bg-success text-light
+                                @elseif($data->first()->kategori_co2 == 'Cukup')
                                     bg-primary text-light
-                                @elseif($data->first()->kategori_co == 'Buruk')
+                                @elseif($data->first()->kategori_co2 == 'Buruk')
                                     bg-warning text-light
-                                @elseif($data->first()->kategori_co == 'Sangat Buruk')
+                                @elseif($data->first()->kategori_co2 == 'Sangat Buruk')
                                     bg-danger text-light
                                 @else
                                     bg-dark text-light @endif">
