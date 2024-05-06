@@ -20,11 +20,10 @@ class SensorExport implements FromCollection,WithHeadings
     {
         return [
             'ID',
-
             'Suhu(C)',
             'Kelembaban',
-            'PM10',
             'PM2.5',
+            'PM10',
             'Carbon Oksida',
             'Carbon Dioksida',
             'Waktu Masuk',
