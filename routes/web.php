@@ -40,7 +40,7 @@ Route::get('/export-csv2', 'App\Http\Controllers\Sensor2Controller@exportCsv');
 // api realtime
 
 Route::get('/sensors/latest', [ApiController::class, 'latest']);
-Route::get('/sensors/latest', [Api2Controller::class, 'latest2']);
+Route::get('/sensors/latest2', [Api2Controller::class, 'latest2']);
 // api esp
 Route::post('/esp', [GetdataController::class, 'store'])->name('data.store');
 Route::post('/esp2', [Getdata2Controller::class, 'store'])->name('data.store2');
