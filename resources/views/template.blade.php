@@ -248,6 +248,18 @@
                             <span class="menu-title">Data Table</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{'dashboard2'}}">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Dashboard 2</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{'data2'}}">
+                            <i class="icon-grid-2 menu-icon"></i>
+                            <span class="menu-title">Data Table 2</span>
+                        </a>
+                    </li>
                     {{-- <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="{{'data'}}" aria-expanded="false"
                             aria-controls="tables">
