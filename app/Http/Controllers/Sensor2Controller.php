@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sensordua;
 use Illuminate\Http\Request;
-use App\Exports\SensorExport;
+use App\Exports\Sensor2Export;
 use Maatwebsite\Excel\Facades\Excel;
 
 class Sensor2Controller extends Controller
@@ -123,12 +123,12 @@ class Sensor2Controller extends Controller
 
     public function exportExcel()
     {
-        return Excel::download(new SensorExport, 'sensors.xlsx');
+        return Excel::download(new Sensor2Export, 'sensors.xlsx');
     }
 
     public function exportCsv()
     {
-        return Excel::download(new SensorExport, 'sensors.csv');
+        return Excel::download(new Sensor2Export, 'sensors.csv');
     }
     /**
      * Show the form for creating a new resource.

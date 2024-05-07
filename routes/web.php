@@ -35,6 +35,8 @@ Route::get('/dashboard2',[Sensor2Controller::class, 'index'])->name('dashboard2'
 Route::get('/data2',[Sensor2Controller::class, 'data'])->name('data2');
 Route::get('/export-excel', 'App\Http\Controllers\SensorController@exportExcel');
 Route::get('/export-csv', 'App\Http\Controllers\SensorController@exportCsv');
+Route::get('/export-excel2', 'App\Http\Controllers\Sensor2Controller@exportExcel');
+Route::get('/export-csv2', 'App\Http\Controllers\Sensor2Controller@exportCsv');
 // api realtime
 
 Route::get('/sensors/latest', [ApiController::class, 'latest']);
