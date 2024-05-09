@@ -28,7 +28,6 @@ class Getdata2Controller extends Controller
                     'value_co' => $request->value_co,
                     'value_co2' => $request->value_co2,
                 ]);
-                Event::dispatch(new NewEspEvent($esp));
                 return response()->json($esp);
             }
 
