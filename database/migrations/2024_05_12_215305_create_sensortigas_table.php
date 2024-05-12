@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('sensortigas', function (Blueprint $table) {
             $table->id();
+            $table->decimal('value_suhu');
+            $table->decimal('value_kelembaban');
+            $table->decimal('value_pm25');
+            $table->decimal('value_pm10');
+            $table->decimal('value_co');
+            $table->decimal('value_co2');
             $table->timestamps();
         });
     }

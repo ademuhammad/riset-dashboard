@@ -7,6 +7,7 @@ use App\Http\Controllers\SensorController;
 use App\Http\Controllers\GetdataController;
 use App\Http\Controllers\Sensor2Controller;
 use App\Http\Controllers\Getdata2Controller;
+use App\Http\Controllers\Getdata3Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,10 +38,14 @@ Route::get('/export-excel', 'App\Http\Controllers\SensorController@exportExcel')
 Route::get('/export-csv', 'App\Http\Controllers\SensorController@exportCsv');
 Route::get('/export-excel2', 'App\Http\Controllers\Sensor2Controller@exportExcel');
 Route::get('/export-csv2', 'App\Http\Controllers\Sensor2Controller@exportCsv');
+Route::get('/export-excel3', 'App\Http\Controllers\Sensor3Controller@exportExcel');
+Route::get('/export-csv3', 'App\Http\Controllers\Sensor3Controller@exportCsv');
 // api realtime
 
 Route::get('/sensors/latest', [ApiController::class, 'latest']);
 Route::get('/sensors/latest2', [Api2Controller::class, 'latest2']);
+Route::get('/sensors/latest3', [Api2Controller::class, 'latest3']);
 // api esp
 Route::post('/esp', [GetdataController::class, 'store'])->name('data.store');
 Route::post('/esp2', [Getdata2Controller::class, 'store'])->name('data.store2');
+Route::post('/esp2', [Getdata3Controller::class, 'store'])->name('data.store3');
