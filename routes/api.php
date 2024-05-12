@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GetdataController;
 use App\Http\Controllers\Getdata2Controller;
+use App\Http\Controllers\Getdata3Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/esp', [GetdataController::class, 'store'])->name('data.store');
 Route::post('/esp2', [Getdata2Controller::class, 'store'])->name('data.store2');
-Route::post('/esp3', [Getdata2Controller::class, 'store'])->name('data.store3');
+Route::post('/esp3', [Getdata3Controller::class, 'store'])->name('data.store3');
