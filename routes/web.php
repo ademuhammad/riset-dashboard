@@ -51,4 +51,4 @@ Route::get('/sensors/latest3', [Api2Controller::class, 'latest3']);
 // api esp
 Route::post('/esp', [GetdataController::class, 'store'])->name('data.store');
 Route::post('/esp2', [Getdata2Controller::class, 'store'])->name('data.store2');
-Route::post('/esp2', [Getdata3Controller::class, 'store'])->name('data.store3');
+Route::post('/esp3', [Getdata3Controller::class, 'store'])->name('data.store3');
