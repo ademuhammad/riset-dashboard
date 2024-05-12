@@ -6,6 +6,7 @@ use App\Http\Controllers\Api2Controller;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\GetdataController;
 use App\Http\Controllers\Sensor2Controller;
+use App\Http\Controllers\Sensor3Controller;
 use App\Http\Controllers\Getdata2Controller;
 use App\Http\Controllers\Getdata3Controller;
 
@@ -34,6 +35,8 @@ Route::get('/dashboard',[SensorController::class, 'index'])->name('dashboard');
 Route::get('/data',[SensorController::class, 'data'])->name('data');
 Route::get('/dashboard2',[Sensor2Controller::class, 'index'])->name('dashboard2');
 Route::get('/data2',[Sensor2Controller::class, 'data'])->name('data2');
+Route::get('/dashboard3',[Sensor3Controller::class, 'index'])->name('dashboard3');
+Route::get('/data3',[Sensor3Controller::class, 'data'])->name('data3');
 Route::get('/export-excel', 'App\Http\Controllers\SensorController@exportExcel');
 Route::get('/export-csv', 'App\Http\Controllers\SensorController@exportCsv');
 Route::get('/export-excel2', 'App\Http\Controllers\Sensor2Controller@exportExcel');
