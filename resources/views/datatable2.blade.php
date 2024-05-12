@@ -9,11 +9,11 @@
 
                         <div class="card-body">
                             <h4 class="card-title">Tabel Kualitas Udara</h4>
-<!-- Tombol download Excel -->
-<a href="{{ url('/export-excel') }}" class="btn btn-success">Download Excel</a>
+                            <!-- Tombol download Excel -->
+                            <a href="{{ url('/export-excel2') }}" class="btn btn-success">Download Excel</a>
 
-<!-- Tombol download CSV -->
-<a href="{{ url('/export-csv') }}" class="btn btn-primary">Download CSV</a>
+                            <!-- Tombol download CSV -->
+                            <a href="{{ url('/export-csv2') }}" class="btn btn-primary">Download CSV</a>
 
                             <div class="table-responsive">
                                 <table class="table table-hover">
