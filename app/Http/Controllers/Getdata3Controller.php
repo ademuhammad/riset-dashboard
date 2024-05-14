@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
@@ -8,27 +7,40 @@ use Illuminate\Http\Request;
 
 class Getdata3Controller extends Controller
 {
-    //
     public function store(Request $request)
     {
         try {
-            $last_esp = Sensortiga::latest()->first();
-
+            // Get the current time
             $now = Carbon::now();
 
-            if (!$last_esp || $now->diffInSeconds(Carbon::parse($last_esp->created_at)) >= 10) {
-                $esp = Sensortiga::create([
-                    'value_suhu' => $request->value_suhu,
-                    'value_kelembaban' => $request->value_kelembaban,
-                    'value_pm25' => $request->value_pm25,
-                    'value_pm10' => $request->value_pm10,
-                    'value_co' => $request->value_co,
-                    'value_co2' => $request->value_co2,
-                ]);
-                return response()->json($esp);
-            }
+            // Define the start and end time limits
+            $start_time = Carbon::createFromTime(7, 30);
+            $end_time = Carbon::createFromTime(16, 0);
 
-            return response()->json('success');
+            // Check if the current time is within the allowed range
+            if ($now->between($start_time, $end_time)) {
+                $last_esp = Sensortiga::latest()->first();
+
+                if (!$last_esp || $now->diffInSeconds(Carbon::parse($last_esp->created_at)) >= 10) {
+                    $esp = Sensortiga::create([
+                        'value_suhu' => $request->value_suhu,
+                        'value_kelembaban' => $request->value_kelembaban,
+                        'value_pm25' => $request->value_pm25,
+                        'value_pm10' => $request->value_pm10,
+                        'value_co' => $request->value_co,
+                        'value_co2' => $request->value_co2,
+                    ]);
+                    return response()->json($esp);
+                }
+
+                return response()->json('success');
+            } else {
+                // Return a response indicating the request was made outside the allowed time range
+                return response()->json([
+                    'code' => 400,
+                    'message' => 'Data can only be created between 07:30 and 16:00',
+                ]);
+            }
         } catch (\Exception $e) {
             return response()->json([
                 'code' => 400,
