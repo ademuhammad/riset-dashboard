@@ -239,37 +239,37 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{'dashboard'}}">
                             <i class="icon-grid menu-icon"></i>
-                            <span class="menu-title">Dashboard</span>
+                            <span class="menu-title">Dashboard Ruang 1</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{'data'}}">
                             <i class="icon-grid-2 menu-icon"></i>
-                            <span class="menu-title">Data Table</span>
+                            <span class="menu-title">DataTable Ruang 1</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{'dashboard2'}}">
                             <i class="icon-grid menu-icon"></i>
-                            <span class="menu-title">Dashboard 2</span>
+                            <span class="menu-title">Dashboard Ruang 2</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{'data2'}}">
                             <i class="icon-grid-2 menu-icon"></i>
-                            <span class="menu-title">Data Table 2</span>
+                            <span class="menu-title">DataTable Ruang 2</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{'dashboard3'}}">
                             <i class="icon-grid menu-icon"></i>
-                            <span class="menu-title">Dashboard 3</span>
+                            <span class="menu-title">Dashboard Ruang 3</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{'data3'}}">
                             <i class="icon-grid-2 menu-icon"></i>
-                            <span class="menu-title">Data Table 3</span>
+                            <span class="menu-title">DataTable Ruang 3</span>
                         </a>
                     </li>
                     {{-- <li class="nav-item">
