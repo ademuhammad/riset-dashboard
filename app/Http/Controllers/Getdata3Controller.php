@@ -20,8 +20,8 @@ class Getdata3Controller extends Controller
                 $esp = Sensortiga::create([
                     'value_suhu' => $request->value_suhu,
                     'value_kelembaban' => $request->value_kelembaban,
-                    'value_pm25' => $request->value_pm25,
-                    'value_pm10' => $request->value_pm10,
+                    'value_pm25' => abs($request->value_pm25),
+                    'value_pm10' => abs($request->value_pm10),
                     'value_co' => $request->value_co,
                     'value_co2' => $request->value_co2,
                 ]);
