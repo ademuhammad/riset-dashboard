@@ -93,12 +93,12 @@ class GetdataController extends Controller
 
             if (!$last_esp || $now->diffInSeconds(Carbon::parse($last_esp->created_at)) >= 10) {
                 $esp = Sensor::create([
-                    'value_suhu' => rand(15, 35), // Contoh nilai acak untuk suhu (dalam range 15-35)
-                    'value_kelembaban' => rand(30, 90), // Contoh nilai acak untuk kelembaban (dalam range 30-90)
-                    'value_pm25' => rand(0, 500), // Contoh nilai acak untuk PM2.5 (dalam range 0-500)
-                    'value_pm10' => rand(0, 500), // Contoh nilai acak untuk PM10 (dalam range 0-500)
-                    'value_co' => rand(0, 10), // Contoh nilai acak untuk CO (dalam range 0-10)
-                    'value_co2' => rand(400, 5000), // Contoh nilai acak untuk CO2 (dalam range 400-5000)
+                    'value_suhu' => $request->value_suhu,
+                    'value_kelembaban' => $request->value_kelembaban,
+                    'value_pm25' => abs($request->value_pm25),
+                    'value_pm10' => abs($request->value_pm10),
+                    'value_co' => $request->value_co,
+                    'value_co2' => $request->value_co2,
                 ]);
                 return response()->json($esp);
             }
